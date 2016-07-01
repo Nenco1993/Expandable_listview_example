@@ -1,0 +1,57 @@
+<android.support.v4.widget.DrawerLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_layout"
+        android:fitsSystemWindows="false"
+        tools:openDrawer="start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <!-- The main content view -->
+    <FrameLayout
+
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            >
+    </FrameLayout>
+
+    <include
+            layout="@layout/app_bar_main"/>
+
+
+
+
+
+    <!-- The navigation drawer -->
+
+
+    <ExpandableListView
+
+
+            android:layout_width="290dp"
+            android:groupIndicator="@null"
+            android:divider="#e4e4e4"
+            android:dividerHeight="1dp"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:layout_gravity="start"
+            android:childDivider="#e4e4e4"
+            android:id="@+id/expandableListView"/>
+
+
+</android.support.v4.widget.DrawerLayout>
+
+
+
+
+
+
+
+
+
+
