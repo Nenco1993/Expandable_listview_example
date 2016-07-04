@@ -4,6 +4,7 @@ package com.example.neven.dim_oficial_neven;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,10 @@ public class EquipoFragment extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
 
-                Toast.makeText(getActivity(), "you clicked me", Toast.LENGTH_SHORT).show();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new PlayerInfoFragment(), "PlayerInfoFragment");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
 
                 return true;
