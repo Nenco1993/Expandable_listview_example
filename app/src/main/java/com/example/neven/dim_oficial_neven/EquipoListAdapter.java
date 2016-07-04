@@ -24,16 +24,19 @@ public class EquipoListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<String> listDataHeaders;
-    private HashMap<String, List<String>> listDataChild;
+    private HashMap<String, List<SinglePlayer>> listDataChild;
     private MyApplication app = MyApplication.getInstance();
     private ImageLoader imageLoader = ImageLoader.getInstance();
     private List<String> pictures = new ArrayList<String>();
-    SinglePlayer sp;
+    SinglePlayer sp2;
 
-    private List<String> newlist = new ArrayList<String>();
+    private List<SinglePlayer> newlist = new ArrayList<SinglePlayer>();
+
+    private ArrayList<Object> childtems;
+    private ArrayList<String> parentItems, child;
 
 
-    public EquipoListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<String>> listChildData) {
+    public EquipoListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<SinglePlayer>> listChildData) {
         this.context = context;
         this.listDataHeaders = listDataHeader;
         this.listDataChild = listChildData;
@@ -59,7 +62,7 @@ public class EquipoListAdapter extends BaseExpandableListAdapter {
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
 
-        String childText = (String) getChild(groupPosition, childPosition);
+        SinglePlayer childText = (SinglePlayer) getChild(groupPosition, childPosition);
 
 
         if (convertView == null) {
@@ -75,7 +78,9 @@ public class EquipoListAdapter extends BaseExpandableListAdapter {
         ImageView ivPlayerPicture = (ImageView) convertView.findViewById(R.id.tvPlayerPictureID);
 
 
-        tvPlayerName.setText(childText);
+        tvPlayerName.setText(childText.getPlayerName());
+        tvPlayerNumber.setText(childText.getPlayerNumber());
+        imageLoader.displayImage(childText.getPlayerPicture(),ivPlayerPicture);
 
 
         return convertView;

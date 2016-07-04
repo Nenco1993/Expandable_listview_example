@@ -21,14 +21,12 @@ public class EquipoFragment extends Fragment {
 
     ExpandableListView expListView;
     private List<String> listDataHeader;
-    private HashMap<String, List<String>> listDataChild;
+    private HashMap<String, List<SinglePlayer>> listDataChild;
     private MyApplication app = MyApplication.getInstance();
-    List<String> goalkeepers;
-    List<String> defenders;
-    List<String> middle;
-    List<String> attack;
-    List<String> allPlayers;
-    String pozicija;
+    List<SinglePlayer> goalkeepers;
+    List<SinglePlayer> defenders;
+    List<SinglePlayer> middle;
+    List<SinglePlayer> attackers;
 
 
     public EquipoFragment() {
@@ -42,50 +40,20 @@ public class EquipoFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_equipo, container, false);
 
-        Toast.makeText(getActivity(), "equipo fragment", Toast.LENGTH_LONG).show();
 
         expListView = (ExpandableListView) v.findViewById(R.id.expandableListViewForEquipoFragment);
 
         prepareListData();
 
-        // ListView listview=(ListView) v.findViewById(R.id.listView);
-        // ListAdapter lvadapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,middle);
-        // listview.setAdapter(lvadapter);
 
-        EquipoListAdapter adapter = new EquipoListAdapter(getActivity(), listDataHeader, listDataChild);
+        final EquipoListAdapter adapter = new EquipoListAdapter(getActivity(), listDataHeader, listDataChild);
 
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
 
-                switch (childPosition) {
-
-
-                    case 0:
-
-                        Toast.makeText(getActivity(), "00000000", Toast.LENGTH_SHORT).show();
-
-                        break;
-
-
-                    case 1:
-
-                        Toast.makeText(getActivity(), "111111111", Toast.LENGTH_SHORT).show();
-
-
-                        break;
-
-
-                    default:
-
-                        Toast.makeText(getActivity(), "defffff", Toast.LENGTH_SHORT).show();
-
-
-                        break;
-
-
-                }
+                Toast.makeText(getActivity(), "you clicked me", Toast.LENGTH_SHORT).show();
 
 
                 return true;
@@ -103,7 +71,7 @@ public class EquipoFragment extends Fragment {
 
 
         listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
+        listDataChild = new HashMap<String, List<SinglePlayer>>();
 
 
         // Adding child data
@@ -114,11 +82,11 @@ public class EquipoFragment extends Fragment {
 
 
         // Adding child data
+        goalkeepers = new ArrayList<SinglePlayer>();
+        defenders = new ArrayList<SinglePlayer>();
+        middle = new ArrayList<SinglePlayer>();
+        attackers = new ArrayList<SinglePlayer>();
 
-        goalkeepers = new ArrayList<String>();
-        defenders = new ArrayList<String>();
-        middle = new ArrayList<String>();
-        attack = new ArrayList<String>();
 
         for (SinglePlayer sp : app.getPlayers()) {
 
@@ -127,7 +95,7 @@ public class EquipoFragment extends Fragment {
 
 
                 String name1 = sp.getPlayerName();
-                goalkeepers.add(name1);
+                goalkeepers.add(sp);
 
 
             }
@@ -136,7 +104,7 @@ public class EquipoFragment extends Fragment {
 
 
                 String name2 = sp.getPlayerName();
-                defenders.add(name2);
+                defenders.add(sp);
 
 
             }
@@ -145,7 +113,7 @@ public class EquipoFragment extends Fragment {
 
 
                 String name3 = sp.getPlayerName();
-                middle.add(name3);
+                middle.add(sp);
 
 
             }
@@ -154,7 +122,7 @@ public class EquipoFragment extends Fragment {
 
 
                 String name4 = sp.getPlayerName();
-                attack.add(name4);
+                attackers.add(sp);
 
 
             }
@@ -166,7 +134,7 @@ public class EquipoFragment extends Fragment {
         listDataChild.put(listDataHeader.get(0), goalkeepers); // Header, Child data
         listDataChild.put(listDataHeader.get(1), defenders);
         listDataChild.put(listDataHeader.get(2), middle);
-        listDataChild.put(listDataHeader.get(3), attack);
+        listDataChild.put(listDataHeader.get(3), attackers);
 
 
     }
