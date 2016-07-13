@@ -1,4 +1,4 @@
-package com.example.neven.dim_oficial_neven;
+package com.example.neven.dim_oficial_neven.fragments;
 
 
 import android.os.Bundle;
@@ -6,10 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import com.example.neven.dim_oficial_neven.storage.MyApplication;
+import com.example.neven.dim_oficial_neven.R;
 
 
 /**

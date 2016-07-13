@@ -1,11 +1,18 @@
-package com.example.neven.dim_oficial_neven;
+package com.example.neven.dim_oficial_neven.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
+import com.example.neven.dim_oficial_neven.R;
+import com.example.neven.dim_oficial_neven.storage.MyApplication;
+import com.example.neven.dim_oficial_neven.storage.SinglePlayer;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -20,29 +27,8 @@ import static java.lang.Thread.sleep;
 public class SplashScreen extends AppCompatActivity {
 
     private MyApplication app = MyApplication.getInstance();
-
-
     private String urlString = "https://www.eclecticasoft.com/dim/content/DIM_Borut.xml";
-
-    private List<String> listOfPlayerFieldPosition = new ArrayList<String>();
-    private List<String> listOfPlayerID = new ArrayList<String>();
-    private List<String> listOfPlayerName = new ArrayList<String>();
-    private List<String> listOfPlayerNation = new ArrayList<String>();
-    private List<String> listOfPlayerAge = new ArrayList<String>();
-    private List<String> listOfPlayerPosition = new ArrayList<String>();
-    private List<String> listOfPlayerNumber = new ArrayList<String>();
-    private List<String> listOfPlayerDominantHand = new ArrayList<String>();
-    private List<String> listOfPlayerStats = new ArrayList<String>();
-    private List<String> listOfPlayerSpeed = new ArrayList<String>();
-    private List<String> listOfPlayerDefense = new ArrayList<String>();
-    private List<String> listOfPlayerAttack = new ArrayList<String>();
-    private List<String> listOfPlayerStrength = new ArrayList<String>();
-    private List<String> listOfPlayerTechnique = new ArrayList<String>();
-    private List<String> listOfPlayerPunch = new ArrayList<String>();
-    private List<String> listOfPlayerPictures = new ArrayList<String>();
-
     private SinglePlayer player;
-
     private List<SinglePlayer> listOfPlayers = new ArrayList<SinglePlayer>();
 
 
@@ -57,27 +43,62 @@ public class SplashScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                try {
-
-                    parseXML();
-
-                } catch (Exception e) {
+        ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
 
-                    e.printStackTrace();
-                }
+        try {
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
+
+            if (activeNetwork.isConnectedOrConnecting()) {
+
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        try {
+
+
+                            parseXML();
+
+
+                        } catch (Exception e) {
+
+                            e.printStackTrace();
+                            Intent intent = new Intent(getApplicationContext(), SomethingWentWrong.class);
+                            startActivity(intent);
+
+
+                        }
+
+
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+
+                    }
+                }).start();
+
+
+            } else {
+
+                Toast.makeText(SplashScreen.this, "Internet connection must be ON", Toast.LENGTH_LONG).show();
+                finishAffinity();
 
 
             }
-        }).start();
+
+
+        } catch (Exception e) {
+
+
+            Toast.makeText(SplashScreen.this, "Internet connection must be ON", Toast.LENGTH_LONG).show();
+            finishAffinity();
+
+
+        }
 
 
     }
@@ -95,17 +116,23 @@ public class SplashScreen extends AppCompatActivity {
         try {
 
 
-            //__________________dohvati_________
+            //__________________dohvati_____________________
+
+
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+
             conn.setReadTimeout(10000);
-            conn.setConnectTimeout(1500000000);
+            conn.setConnectTimeout(15000);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.connect();
 
+
             InputStream stream = conn.getInputStream();
+
+
             XmlPullParserFactory xmlFactoryObject;
             XmlPullParser myparser;
 
@@ -115,6 +142,7 @@ public class SplashScreen extends AppCompatActivity {
 
             myparser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             myparser.setInput(stream, null);
+
 
             //_____________________________
 
@@ -173,8 +201,6 @@ public class SplashScreen extends AppCompatActivity {
                             player.setPlayerName(playerName);
 
 
-
-
                         }
 
                         if (tagname.equals("playerNation")) {
@@ -226,6 +252,8 @@ public class SplashScreen extends AppCompatActivity {
 
 
                             String Speed = getText;
+                            player.setPlayerSpeed(Speed);
+
 
                         }
 
@@ -233,6 +261,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
                             String Defense = getText;
+                            player.setPlayerDefense(Defense);
 
 
                         }
@@ -241,6 +270,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
                             String Attack = getText;
+                            player.setPlayerAttack(Attack);
 
 
                         }
@@ -249,6 +279,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
                             String Strength = getText;
+                            player.setPlayerStrength(Strength);
 
 
                         }
@@ -257,6 +288,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
                             String Technique = getText;
+                            player.setPlayerTechnique(Technique);
 
 
                         }
@@ -265,6 +297,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
                             String Punch = getText;
+                            player.setPlayerPunch(Punch);
 
 
                         }
@@ -297,7 +330,12 @@ public class SplashScreen extends AppCompatActivity {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
+
+
+            Intent intent = new Intent(getApplicationContext(), SomethingWentWrong.class);
+            startActivity(intent);
+
+
         }
 
 

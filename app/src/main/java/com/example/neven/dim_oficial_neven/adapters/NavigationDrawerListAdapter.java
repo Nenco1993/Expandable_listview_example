@@ -1,13 +1,13 @@
-package com.example.neven.dim_oficial_neven;
+package com.example.neven.dim_oficial_neven.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.neven.dim_oficial_neven.R;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +21,7 @@ public class NavigationDrawerListAdapter extends BaseExpandableListAdapter {
     private HashMap<String, List<String>> listDataChild;
     private Context context;
     private List<Integer> image;
-    public static ImageView ivArrow;
+    private static ImageView ivArrow;
 
 
     public NavigationDrawerListAdapter(Context context, List<Integer> image, HashMap<String, List<String>> listDataChild, List<String> listDataHeaders) {
@@ -76,23 +76,25 @@ public class NavigationDrawerListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.header_layout_for_mydrawer, parent,false);
+        View v = inflater.inflate(R.layout.header_layout_for_mydrawer, parent, false);
 
         String headerText = (String) getGroup(groupPosition);
 
 
         ImageView ivLogo = (ImageView) v.findViewById(R.id.ivLogoID);
         TextView tvHeaderText = (TextView) v.findViewById(R.id.tvHeaderTextID);
-         ivArrow = (ImageView) v.findViewById(R.id.ivArrowID);
+        ivArrow = (ImageView) v.findViewById(R.id.ivArrowID);
 
-        ivLogo.setFocusable(false);
-        tvHeaderText.setFocusable(false);
-        ivArrow.setFocusable(false);
+
+        if (isExpanded) {
+            ivArrow.setBackgroundResource(R.drawable.arrow__menu_close);
+
+        } else {
+            ivArrow.setBackgroundResource(R.drawable.arrow__menu_open);
+        }
 
         tvHeaderText.setText(headerText);
         ivLogo.setImageResource(image.get(groupPosition));
-
-
 
 
         switch (groupPosition) {
@@ -174,8 +176,6 @@ public class NavigationDrawerListAdapter extends BaseExpandableListAdapter {
                 break;
 
 
-
-
         }
 
 
@@ -192,7 +192,7 @@ public class NavigationDrawerListAdapter extends BaseExpandableListAdapter {
 
 
         TextView tvChildText = (TextView) v.findViewById(R.id.tvChildTextID);
-        tvChildText.setFocusable(false);
+
         tvChildText.setText(childText);
 
 

@@ -17,14 +17,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-            >
+    >
     </FrameLayout>
 
     <include
             layout="@layout/app_bar_main"/>
-
-
-
 
 
     <!-- The navigation drawer -->
@@ -33,7 +30,7 @@
     <ExpandableListView
 
 
-            android:layout_width="290dp"
+            android:layout_width="match_parent"
             android:groupIndicator="@null"
             android:divider="#e4e4e4"
             android:dividerHeight="1dp"
@@ -41,7 +38,7 @@
             android:choiceMode="singleChoice"
             android:layout_gravity="start"
             android:childDivider="#e4e4e4"
-            android:id="@+id/expandableListView"/>
+            android:id="@+id/expandableListView" android:background="#BF0311"/>
 
 
 </android.support.v4.widget.DrawerLayout>

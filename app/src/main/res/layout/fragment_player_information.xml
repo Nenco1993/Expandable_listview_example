@@ -3,225 +3,396 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:weightSum="1"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent" android:background="#cdcdcd">
 
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_weight="0.6"
-            android:layout_height="match_parent" android:background="#B0C4DE">
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ivPlayerInfoLogoID" android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true" android:layout_marginStart="5dp"
-                android:src="@drawable/icon_default_player"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="ime"
-                android:id="@+id/tvPlayerInfoPlayerNameID" android:layout_alignParentTop="true" android:layout_toEndOf="@+id/ivPlayerInfoLogoID"
-                android:layout_marginTop="19dp" android:layout_marginLeft="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="broj"
-                android:id="@+id/tvPlayerInfoPlayerNumberID" android:layout_below="@+id/tvPlayerInfoPlayerNameID"
-                android:layout_toEndOf="@+id/ivPlayerInfoLogoID" android:layout_marginLeft="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="nac"
-                android:id="@+id/tvPlayerInfoNationalityID" android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/ivPlayerInfoLogoID" android:layout_marginLeft="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="nacV"
-                android:id="@+id/tvPlayerInfoNationValueID" android:layout_below="@+id/tvPlayerInfoNationalityID"
-                android:layout_toEndOf="@+id/ivPlayerInfoLogoID" android:layout_marginLeft="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="pos"
-                android:id="@+id/textView5" android:layout_below="@+id/tvPlayerInfoNationValueID"
-                android:layout_toEndOf="@+id/ivPlayerInfoLogoID" android:layout_marginTop="20dp"
-                android:layout_marginLeft="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="posV"
-                android:id="@+id/tvPlayerInfoPositionID" android:layout_below="@+id/textView5"
-                android:layout_toEndOf="@+id/ivPlayerInfoLogoID" android:layout_marginLeft="5dp"
-        />
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="age"
-                android:id="@+id/textView7"
-                android:layout_alignTop="@+id/tvPlayerInfoNationalityID" android:layout_alignParentEnd="true"
-                android:layout_marginRight="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="ageV"
-                android:id="@+id/tvPlayerInfoPlayerAgeID"
-                android:layout_below="@+id/tvPlayerInfoNationalityID" android:layout_alignParentEnd="true"
-                android:layout_marginRight="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="pierna"
-                android:id="@+id/textView9"
-                android:layout_alignTop="@+id/textView5" android:layout_alignParentEnd="true"
-                android:layout_marginRight="5dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="piernaV"
-                android:id="@+id/textView10"
-                android:layout_alignTop="@+id/tvPlayerInfoPositionID" android:layout_alignParentEnd="true"
-                android:layout_marginRight="5dp"/>
-    </RelativeLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="0.6" android:background="#396195">
 
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_weight="0.4"
-            android:layout_height="match_parent" android:background="#d1d1d1">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:weightSum="1"
+                      android:orientation="horizontal">
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="HABILIDADES"
-                android:id="@+id/textView11" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView3" android:layout_below="@+id/textView11"
-                android:layout_toStartOf="@+id/textView11" android:layout_marginTop="15dp"
-                android:src="@drawable/icon_shield_1x"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView4" android:layout_alignTop="@+id/imageView3"
-                android:layout_centerHorizontal="true" android:src="@drawable/icon_lightning_1x"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView5" android:layout_alignTop="@+id/imageView4"
-                android:layout_toEndOf="@+id/textView11" android:src="@drawable/icon_crosshair_1x"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Defensa"
-                android:id="@+id/textView12" android:layout_below="@+id/imageView3"
-                android:layout_alignStart="@+id/imageView3"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Velocidad"
-                android:id="@+id/textView13"
-                android:layout_alignTop="@+id/textView12" android:layout_centerHorizontal="true"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Ataque"
-                android:id="@+id/textView14"
-                android:layout_below="@+id/imageView5" android:layout_alignEnd="@+id/imageView5"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="dV"
-                android:id="@+id/textView15" android:layout_below="@+id/textView12"
-                android:layout_alignStart="@+id/textView12"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="vV"
-                android:id="@+id/textView16" android:layout_alignTop="@+id/textView15"
-                android:layout_alignStart="@+id/textView13"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="aV"
-                android:id="@+id/textView17" android:layout_alignTop="@+id/textView16"
-                android:layout_alignStart="@+id/textView14"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView6" android:layout_below="@+id/textView15"
-                android:layout_alignStart="@+id/textView15" android:layout_marginTop="18dp"
-                android:src="@drawable/icon_weights_1x"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView7"
-                android:src="@drawable/icon_shoe_1x" android:layout_alignTop="@+id/imageView6"
-                android:layout_alignStart="@+id/imageView4"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView8" android:layout_alignTop="@+id/imageView7"
-                android:layout_alignStart="@+id/imageView5" android:src="@drawable/icon_ball_1x"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Fuerza"
-                android:id="@+id/textView18" android:layout_below="@+id/imageView6"
-                android:layout_alignStart="@+id/imageView6" android:layout_marginTop="18dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Tecnica"
-                android:id="@+id/textView19" android:layout_alignTop="@+id/textView18"
-                android:layout_alignStart="@+id/imageView7"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Golpe"
-                android:id="@+id/textView20" android:layout_alignTop="@+id/textView19"
-                android:layout_alignStart="@+id/imageView8"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="fV"
-                android:id="@+id/textView21" android:layout_below="@+id/textView18"
-                android:layout_alignStart="@+id/textView18"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="tV"
-                android:id="@+id/textView22" android:layout_below="@+id/textView19"
-                android:layout_alignStart="@+id/textView19"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="gV"
-                android:id="@+id/textView23" android:layout_below="@+id/textView20"
-                android:layout_alignStart="@+id/textView20"/>
-    </RelativeLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="0.6"
+                          android:orientation="horizontal">
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ivPlayerInfoLogoID" android:layout_gravity="bottom"
+                        android:layout_marginRight="5dp" android:src="@drawable/default_player_small"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="0.4"
+                          android:orientation="horizontal">
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:weightSum="1"
+                              android:orientation="horizontal">
+
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="0.5"
+                                  android:orientation="vertical">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="name"
+                                android:id="@+id/tvPlayerInfoPlayerNameID" android:singleLine="false"
+                                android:lines="2" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="number"
+                                android:id="@+id/tvPlayerInfoPlayerNumberID" android:textSize="@dimen/textSize"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="number"
+                                android:visibility="invisible"
+                                android:id="@+id/tvPla32yerInfoPlayerNumberID" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="nation"
+                                android:id="@+id/tvNationMain" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="nation value"
+                                android:id="@+id/tvPlayerInfoNationValueID" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="position"
+                                android:id="@+id/tvPositionMain" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="position value"
+                                android:id="@+id/tvPlayerInfoPositionID" android:textSize="@dimen/textSize"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+
+                                  android:layout_weight="0.5"
+                                  android:orientation="vertical" android:baselineAligned="false">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="name"
+                                android:id="@+id/tvPlayerInffffoPlayerNameID" android:singleLine="false"
+                                android:lines="2" android:visibility="invisible" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="number"
+                                android:id="@+id/tvPlayerInfdfsfdfoPlayerNumberID" android:visibility="invisible"
+                                android:textSize="@dimen/textSize"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="number"
+                                android:visibility="invisible"
+                                android:id="@+id/tvPla32yerInfoPlayerNumberID" android:textSize="@dimen/textSize"/>
+
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="age"
+                                android:id="@+id/tvAgeMain" android:layout_gravity="right"
+                                android:layout_marginRight="5dp" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="age value"
+                                android:id="@+id/tvPlayerInfoPlayerAgeID" android:layout_gravity="right"
+                                android:layout_marginRight="5dp" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="better leg"
+                                android:id="@+id/tvPiernaMain" android:layout_gravity="right"
+                                android:layout_marginRight="5dp" android:textSize="@dimen/textSize"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="better leg value"
+                                android:id="@+id/tvPlayerInfoDominantHandID" android:layout_gravity="right"
+                                android:layout_marginRight="5dp" android:textSize="@dimen/textSize"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:layout_weight="0.4" android:background="#c0c0c0">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:weightSum="100"
+                      android:orientation="vertical">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="40"
+                          android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="HABILIDADES"
+                        android:textSize="@dimen/textSize"
+                        android:id="@+id/tvHabilidadesID" android:layout_gravity="center_horizontal"
+                        android:textStyle="bold" android:layout_marginTop="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="30"
+                          android:orientation="vertical" android:layout_gravity="center_horizontal">
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:weightSum="9"
+                              android:orientation="horizontal">
+
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="3"
+                                  android:orientation="vertical">
+
+
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/habilidadesPicsHeight"
+                                android:layout_gravity="center_horizontal"
+                                android:id="@+id/shield" android:src="@drawable/icon_shield_1x"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Defensa"
+                                android:id="@+id/tvDefensaHeadline" android:layout_gravity="center_horizontal"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="dV"
+                                android:id="@+id/tvDefendID" android:layout_gravity="center_horizontal"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="3"
+                                  android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/habilidadesPicsHeight"
+                                android:layout_gravity="center_horizontal"
+                                android:id="@+id/lightining" android:src="@drawable/icon_lightning_1x"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Velocidad"
+                                android:id="@+id/tvVelocidadheadline" android:layout_gravity="center_horizontal"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="vV"
+                                android:id="@+id/tvLightingID" android:layout_gravity="center_horizontal"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="3"
+                                  android:orientation="vertical">
+
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/habilidadesPicsHeight"
+                                android:layout_gravity="center_horizontal"
+                                android:id="@+id/sniper" android:src="@drawable/icon_crosshair_1x"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Ataque"
+                                android:id="@+id/tvAtaqueHeadline" android:layout_gravity="center_horizontal"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="aV"
+                                android:id="@+id/tvAttackID" android:layout_gravity="center_horizontal"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="30"
+                          android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:weightSum="9"
+                              android:orientation="horizontal">
+
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="3"
+                                  android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/habilidadesPicsHeight"
+                                android:layout_gravity="center_horizontal"
+                                android:id="@+id/gymicon" android:src="@drawable/icon_weights_1x"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Fuerza"
+                                android:id="@+id/tvFuerzaHeadlineID" android:layout_gravity="center_horizontal"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="fV"
+                                android:id="@+id/tvGymID" android:layout_gravity="center_horizontal"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="3"
+                                  android:orientation="vertical">
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/habilidadesPicsHeight"
+                                android:layout_gravity="center_horizontal"
+                                android:id="@+id/shoeicon" android:src="@drawable/icon_shoe_1x"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Tecnica"
+                                android:id="@+id/tvTecnicaHeadline" android:layout_gravity="center_horizontal"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="tV"
+                                android:id="@+id/tvShoeID" android:layout_gravity="center_horizontal"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="3"
+                                  android:orientation="vertical">
+
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/habilidadesPicsHeight"
+                                android:layout_gravity="center_horizontal"
+                                android:id="@+id/ballicoin" android:src="@drawable/icon_ball_1x"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Golpe"
+                                android:id="@+id/tvGolpeHeadlineID" android:layout_gravity="center_horizontal"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="gV"
+                                android:id="@+id/tvBallID" android:layout_gravity="center_horizontal"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 </LinearLayout>

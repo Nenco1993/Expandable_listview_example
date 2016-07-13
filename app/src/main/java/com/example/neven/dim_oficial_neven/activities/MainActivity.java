@@ -1,5 +1,6 @@
-package com.example.neven.dim_oficial_neven;
+package com.example.neven.dim_oficial_neven.activities;
 
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -8,8 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
+import com.example.neven.dim_oficial_neven.R;
+import com.example.neven.dim_oficial_neven.fragments.EquipoFragment;
+import com.example.neven.dim_oficial_neven.fragments.InicioFragment;
+import com.example.neven.dim_oficial_neven.adapters.NavigationDrawerListAdapter;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -22,25 +28,28 @@ public class MainActivity extends AppCompatActivity {
     private List<Integer> images;
     private ExpandableListView expandableListView;
     private DrawerLayout drawer;
-    ImageLoader imageLoader;
+    private ImageLoader imageLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_my_navigation_drawer);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        //FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        // fragmentTransaction.replace(R.id.content_frame, new InicioFragment(), "InicioFragment");
-        // fragmentTransaction.commit();
+        View parentLayout = findViewById(R.id.drawer_layout);
+        Snackbar.make(parentLayout, "Internet connection must be ON at all time", Snackbar.LENGTH_LONG).show();
 
 
         expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
 
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
 
         ImageLoaderConfiguration cfg = ImageLoaderConfiguration.createDefault(getApplicationContext());
 
@@ -118,18 +127,9 @@ public class MainActivity extends AppCompatActivity {
         List<String> empty = new ArrayList<String>();
 
 
-        listDataChild.put(listDataHeaders.get(0), empty); //null
-        listDataChild.put(listDataHeaders.get(1), empty);  //null
-        listDataChild.put(listDataHeaders.get(2), empty);  //null
-        listDataChild.put(listDataHeaders.get(3), empty);  //null
-        listDataChild.put(listDataHeaders.get(4), empty);  //null
-        listDataChild.put(listDataHeaders.get(5), empty);  //null
         listDataChild.put(listDataHeaders.get(6), acerca);
-        listDataChild.put(listDataHeaders.get(7), empty);  //null
         listDataChild.put(listDataHeaders.get(8), social);
         listDataChild.put(listDataHeaders.get(9), academias);
-        listDataChild.put(listDataHeaders.get(10), empty);  //null
-        listDataChild.put(listDataHeaders.get(11), empty);  //null
 
 
         NavigationDrawerListAdapter adapter = new NavigationDrawerListAdapter(this, images, listDataChild, listDataHeaders);
@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
 
                             parent.collapseGroup(8);
+
                         }
 
 
@@ -255,6 +256,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
+        // expandableListView.setChildDivider(getResources().getDrawable(R.color.white));
 
 
         expandableListView.setAdapter(adapter);

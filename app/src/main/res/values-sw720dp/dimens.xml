@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="habilidadesPicsHeight">150dp</dimen>
+    <dimen name="textSize">33dp</dimen>
+    <dimen name="logoInActionBarMarginRight">0dp</dimen>
+
+
+</resources>

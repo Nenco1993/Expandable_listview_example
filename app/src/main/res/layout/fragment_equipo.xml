@@ -2,12 +2,24 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.example.neven.dim_oficial_neven.EquipoFragment" android:background="#d9d9d9">
+             tools:context=".fragments.EquipoFragment" android:background="#d9d9d9">
 
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content" android:background="#071440"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="EQUIPO"
+                    android:id="@+id/textView" android:layout_gravity="center_horizontal" android:textColor="#e8e5e5"/>
+        </LinearLayout>
 
 
         <ExpandableListView

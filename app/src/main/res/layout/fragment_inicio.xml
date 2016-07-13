@@ -2,7 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.example.neven.dim_oficial_neven.InicioFragment" android:background="#d3d3d3">
+             tools:context=".fragments.InicioFragment" android:background="#d3d3d3">
 
 
     <TextView
