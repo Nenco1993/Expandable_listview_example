@@ -1,7 +1,11 @@
 package com.example.neven.dim_oficial_neven.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -65,7 +69,44 @@ public class EquipoFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_equipo, container, false);
 
+        final WifiManager wifiManager = (WifiManager) v.getContext().getSystemService(Context.WIFI_SERVICE);
+        if (wifiManager.isWifiEnabled()){
+
+
+        }else {
+
+            AlertDialog.Builder adbIzlaz = new AlertDialog.Builder(v.getContext());
+
+            adbIzlaz.setTitle("Connection problem?");
+            adbIzlaz.setMessage("Do you want me to turn on your wifi?");
+            adbIzlaz.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+
+                    wifiManager.setWifiEnabled(true);
+
+
+                }
+            });
+
+            adbIzlaz.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    dialog.cancel();
+
+                }
+            });
+
+            AlertDialog adIzlaz = adbIzlaz.create();
+            adIzlaz.show();
+
+
+        }
+
         expListView = (ExpandableListView) v.findViewById(R.id.expandableListViewForEquipoFragment);
+
 
 
         expListView.setAdapter(adapter);

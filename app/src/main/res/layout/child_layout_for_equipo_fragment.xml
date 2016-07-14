@@ -24,8 +24,10 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="textMultiLine"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/tvPlayerNameID" android:layout_gravity="center_horizontal" android:singleLine="true"/>
+                android:id="@+id/tvPlayerNameID" android:layout_gravity="center_horizontal" android:singleLine="false"/>
 
     </LinearLayout>
 
@@ -48,8 +50,10 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="textMultiLine"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/tvPlayerName2ID" android:layout_gravity="center_horizontal" android:singleLine="true"
+                android:id="@+id/tvPlayerName2ID" android:layout_gravity="center_horizontal" android:singleLine="false"
         />
 
     </LinearLayout>

@@ -4,6 +4,7 @@
     <dimen name="textSize">30dp</dimen>
     <dimen name="habilidadesPicsHeight">140dp</dimen>
     <dimen name="logoInActionBarMarginRight">0dp</dimen>
+    <dimen name="playerInfoFragmentTextTopMargin">0dp</dimen>
 
 
 </resources>

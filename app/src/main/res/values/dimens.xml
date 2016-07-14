@@ -11,5 +11,6 @@
 
     <dimen name="habilidadesPicsHeight">50dp</dimen>
     <dimen name="textSize">18dp</dimen>
+    <dimen name="playerInfoFragmentTextTopMargin">0dp</dimen>
 
 </resources>

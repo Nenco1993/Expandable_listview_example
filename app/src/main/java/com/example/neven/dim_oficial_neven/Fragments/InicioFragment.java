@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.example.neven.dim_oficial_neven.storage.MyApplication;
 import com.example.neven.dim_oficial_neven.R;
 
@@ -15,6 +17,9 @@ import com.example.neven.dim_oficial_neven.R;
  * A simple {@link Fragment} subclass.
  */
 public class InicioFragment extends Fragment {
+
+
+
 
     private MyApplication app = MyApplication.getInstance();
 
@@ -29,18 +34,20 @@ public class InicioFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        View v=inflater.inflate(R.layout.fragment_inicio,container,false);
+        View v = inflater.inflate(R.layout.fragment_inicio, container, false);
 
 
 
-        ListView listView=(ListView) v.findViewById(R.id.listViewForInicio);
 
-        //ListAdapter adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,app.getListOfPlayerPictures());
-       // listView.setAdapter(adapter);
+
+
 
 
 
         return v;
     }
+
+
+
 
 }

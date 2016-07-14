@@ -1,5 +1,7 @@
 package com.example.neven.dim_oficial_neven.activities;
 
+import android.content.Context;
+import android.net.wifi.WifiManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -12,10 +14,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 import com.example.neven.dim_oficial_neven.R;
 import com.example.neven.dim_oficial_neven.fragments.EquipoFragment;
 import com.example.neven.dim_oficial_neven.fragments.InicioFragment;
 import com.example.neven.dim_oficial_neven.adapters.NavigationDrawerListAdapter;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -29,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ExpandableListView expandableListView;
     private DrawerLayout drawer;
     private ImageLoader imageLoader;
+    private FrameLayout fragmentContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +44,31 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_my_navigation_drawer);
 
+        fragmentContainer = (FrameLayout) findViewById(R.id.content_frame);
+
+
+        //___________show inicio fragment______________
+
+        InicioFragment inicioFragment = new InicioFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, inicioFragment, "InicioFragment");
+        fragmentTransaction.commit();
+
+
+        //______________________________________
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        if (wifiManager.isWifiEnabled()) {
+
+
+        } else {
+
+            wifiManager.setWifiEnabled(true);
+        }
 
         View parentLayout = findViewById(R.id.drawer_layout);
         Snackbar.make(parentLayout, "Internet connection must be ON at all time", Snackbar.LENGTH_LONG).show();
@@ -50,8 +79,17 @@ public class MainActivity extends AppCompatActivity {
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .build();
 
-        ImageLoaderConfiguration cfg = ImageLoaderConfiguration.createDefault(getApplicationContext());
+        ImageLoaderConfiguration cfg = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                .defaultDisplayImageOptions(defaultOptions)
+                .build();
+
+
+        // ImageLoaderConfiguration cfg = ImageLoaderConfiguration.createDefault(getApplicationContext());
 
 
         imageLoader = ImageLoader.getInstance();
@@ -81,8 +119,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                fragmentContainer.setTranslationX(slideOffset * drawerView.getWidth());
+                drawer.bringChildToFront(drawerView);
+                drawer.requestLayout();
+
+            }
+        };
+
+
         drawer.setDrawerListener(toggle);
+
+
         toggle.syncState();
 
 
@@ -144,7 +199,9 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
 
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                         fragmentTransaction.replace(R.id.content_frame, new InicioFragment(), "InicioFragment");
+                        fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                         drawer.closeDrawers();
 
@@ -198,7 +255,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                         FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction3.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                         fragmentTransaction3.replace(R.id.content_frame, new EquipoFragment(), "EquipoFragment");
+                        fragmentTransaction3.addToBackStack(null);
                         fragmentTransaction3.commit();
                         drawer.closeDrawers();
 
@@ -276,4 +335,6 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+
 }

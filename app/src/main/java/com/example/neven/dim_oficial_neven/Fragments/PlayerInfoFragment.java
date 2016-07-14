@@ -1,10 +1,15 @@
 package com.example.neven.dim_oficial_neven.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +19,8 @@ import android.widget.TextView;
 import com.example.neven.dim_oficial_neven.R;
 import com.example.neven.dim_oficial_neven.storage.SinglePlayer;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import static java.lang.Thread.sleep;
 
 
 /**
@@ -35,6 +42,7 @@ public class PlayerInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_player_information, container, false);
+
 
         ImageView ivPlayerInfoLogo = (ImageView) v.findViewById(R.id.ivPlayerInfoLogoID);
         TextView tvPlayerInfoName = (TextView) v.findViewById(R.id.tvPlayerInfoPlayerNameID);

@@ -1,6 +1,9 @@
 package com.example.neven.dim_oficial_neven.adapters;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.net.wifi.WifiManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
@@ -211,6 +214,7 @@ public class EquipoListAdapter extends BaseExpandableListAdapter {
 
 
         TextView tvText = (TextView) convertView.findViewById(R.id.tvHeaderTextID);
+        tvText.setTypeface(Typeface.DEFAULT_BOLD);
         ImageView ivLogo = (ImageView) convertView.findViewById(R.id.ivHeaderImageID);
         tvText.setText(headerTitle);
 

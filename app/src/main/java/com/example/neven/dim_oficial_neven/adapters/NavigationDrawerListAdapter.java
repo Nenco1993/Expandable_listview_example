@@ -1,6 +1,7 @@
 package com.example.neven.dim_oficial_neven.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +84,7 @@ public class NavigationDrawerListAdapter extends BaseExpandableListAdapter {
 
         ImageView ivLogo = (ImageView) v.findViewById(R.id.ivLogoID);
         TextView tvHeaderText = (TextView) v.findViewById(R.id.tvHeaderTextID);
+        tvHeaderText.setTypeface(Typeface.DEFAULT_BOLD);
         ivArrow = (ImageView) v.findViewById(R.id.ivArrowID);
 
 
